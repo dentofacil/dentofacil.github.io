@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Éxito! | Dentofacil</title>
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .success-page-hero {
+            padding: 100px 20px 40px;
+            text-align: center;
+            background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .success-page-hero h1 {
+            color: var(--color-primary);
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .success-page-hero p {
+            color: var(--color-text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .check-circle {
+            background: var(--color-primary);
+            color: white;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 20px;
+            box-shadow: 0 10px 20px rgba(0, 168, 107, 0.2);
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Ensure pool section displays cleanly here */
+        .premium-pool-section {
+            padding: 60px 0;
+        }
+
+        .pool-info {
+            text-align: left;
+        }
+
+        .slogan {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .contact-data {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            color: var(--color-text);
+        }
+
+        .contact-data p {
+            margin: 4px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-data i {
+            color: var(--color-primary);
+            width: 14px;
+            text-align: center;
+        }
+
+        .btn-whatsapp-outline {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: var(--border-radius-sm);
+            border: 2px solid #25D366;
+            color: #25D366;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-whatsapp-outline:hover {
+            background-color: #25D366;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fa-solid fa-tooth logo-icon"></i>
+                <span class="logo-text">dentofacil<span class="logo-dot">.</span></span>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-item">Volver al inicio</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="success-page-hero">
+            <div class="container">
+                <div class="check-circle">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <h1>¡Solicitud Activa!</h1>
+                <p>Las clínicas de tu zona ya han recibido tu requerimiento. Mientras esperas a ser contactado, puedes
+                    interactuar directamente con nuestros especialistas destacados.</p>
+            </div>
+        </section>
+
+        <!-- PREMIUM POOL BANNER SECTION -->
+        <section class="premium-pool-section">
+            <div class="container">
+                <div class="pool-header text-center" style="margin-bottom: 30px;">
+                    <h3>Clínicas Destacadas en tu Zona</h3>
+                </div>
+                <!-- Banner Cards injected via JS or here -->
+                <div class="pool-grid">
+                    <div class="pool-card">
+                        <div class="pool-cover"
+                            style="background-image: url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60');">
+                        </div>
+                        <div class="pool-info">
+                            <h4>Clínica Dental Sonrisa</h4>
+                            <p class="slogan">"Tu mejor sonrisa, hoy y siempre."</p>
+                            <div class="contact-data">
+                                <p><i class="fa-solid fa-location-dot"></i> Av. Apoquindo 4501, Las Condes</p>
+                                <p><i class="fa-solid fa-phone"></i> +56 9 8765 4321</p>
+                            </div>
+                            <a href="#" class="btn-whatsapp-outline"><i class="fa-brands fa-whatsapp"></i> Hablar con la
+                                Clínica</a>
+                        </div>
+                    </div>
+
+                    <div class="pool-card">
+                        <div class="pool-cover"
+                            style="background-image: url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60');">
+                        </div>
+                        <div class="pool-info">
+                            <h4>Ortodoncia Especializada Sur</h4>
+                            <p class="slogan">"Especialistas en tratamientos invisibles."</p>
+                            <div class="contact-data">
+                                <p><i class="fa-solid fa-location-dot"></i> Av. Providencia 2231, Providencia</p>
+                                <p><i class="fa-solid fa-phone"></i> +56 9 1234 5678</p>
+                            </div>
+                            <a href="#" class="btn-whatsapp-outline"><i class="fa-brands fa-whatsapp"></i> Hablar con la
+                                Clínica</a>
+                        </div>
+                    </div>
+
+                    <div class="pool-card">
+                        <div class="pool-cover"
+                            style="background-image: url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60');">
+                        </div>
+                        <div class="pool-info">
+                            <h4>Centro Odontológico Las Rosas</h4>
+                            <p class="slogan">"Estética y funcionalidad a tu alcance."</p>
+                            <div class="contact-data">
+                                <p><i class="fa-solid fa-location-dot"></i> Los Leones 233, Providencia</p>
+                                <p><i class="fa-solid fa-phone"></i> +56 9 5555 1111</p>
+                            </div>
+                            <a href="#" class="btn-whatsapp-outline"><i class="fa-brands fa-whatsapp"></i> Hablar con la
+                                Clínica</a>
+                        </div>
+                    </div>
+
+                    <div class="pool-card">
+                        <div class="pool-cover"
+                            style="background-image: url('https://images.unsplash.com/photo-1598256989800-fea5f95b54fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60');">
+                        </div>
+                        <div class="pool-info">
+                            <h4>Odontología Premium Vitacura</h4>
+                            <p class="slogan">"Diseñamos alta costura dental."</p>
+                            <div class="contact-data">
+                                <p><i class="fa-solid fa-location-dot"></i> Alonso de Córdova 5122, Vitacura</p>
+                                <p><i class="fa-solid fa-phone"></i> +56 9 6666 2222</p>
+                            </div>
+                            <a href="#" class="btn-whatsapp-outline"><i class="fa-brands fa-whatsapp"></i> Hablar con la
+                                Clínica</a>
+                        </div>
+                    </div>
+
+                    <div class="pool-card">
+                        <div class="pool-cover"
+                            style="background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60');">
+                        </div>
+                        <div class="pool-info">
+                            <h4>Clínica ImplanteMás</h4>
+                            <p class="slogan">"Recupera tus dientes perdidos hoy."</p>
+                            <div class="contact-data">
+                                <p><i class="fa-solid fa-location-dot"></i> Providencia 1234</p>
+                                <p><i class="fa-solid fa-phone"></i> +56 9 7777 3333</p>
+                            </div>
+                            <a href="#" class="btn-whatsapp-outline"><i class="fa-brands fa-whatsapp"></i> Hablar con la
+                                Clínica</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AVISO DE COBERTURA Y BOLETÍN -->
+                <div id="aviso-cobertura" class="premium-pool-card text-center" style="margin-top: 30px;">
+                    <div class="verified-badge" style="justify-content: center; margin-bottom:15px; font-size:1.1rem;">
+                        <i class="fa-solid fa-tower-broadcast"></i> Red Global Dentofacil
+                    </div>
+                    <h3 style="font-size: 1.2rem; color: #1a1a2e; margin-bottom:10px;">¿Qué pasa si no hay clínicas
+                        disponibles hoy en tu ciudad?</h3>
+                    <p style="color: #6b7280; font-size: 0.95rem; line-height: 1.5; margin-bottom: 20px;">
+                        Tu solicitud ha sido enviada con <strong>Prioridad Nivel 1</strong>. Hemos notificado a la red,
+                        si aún no contamos con clínicas en tu zona exacta, te avisaremos apenas un especialista se sume.
+                        (Arriba verás clínicas internacionales VIP como referencia).
+                    </p>
+                    <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding:15px; border-radius:12px;">
+                        <strong style="color:#166534; display:block; margin-bottom:8px;">📣 Novedades Mundiales de la
+                            Red</strong>
+                        <p style="color:#15803d; font-size: 0.85rem; margin-bottom: 12px; font-weight: 500;">
+                            Únete a nuestro Pizarrón Público donde anunciamos en tiempo real qué clínicas de qué países
+                            se van sumando a Dentofacil.
+                        </p>
+                        <a href="#" class="btn btn-outline"
+                            style="width:100%; border-color:#22c55e; color:#15803d; font-size:0.9rem;">
+                            <i class="fa-brands fa-whatsapp"></i> Ver Pizarrón Público (Canal)
+                        </a>
+                    </div>
+                </div>
+
+                <div class="pool-grid" style="margin-top: 30px;">
+                    <div class="pool-card">
+                        <div class="pool-cover"
+                            style="background-image: url('https://images.unsplash.com/photo-1527613426441-4da17471b66d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60');">
+                        </div>
+                        <div class="pool-info">
+                            <h4>Odontopediatría Kids+</h4>
+                            <p class="slogan">"Sin dolor, sin miedo, para los más chicos."</p>
+                            <div class="contact-data">
+                                <p><i class="fa-solid fa-location-dot"></i> Av. Irarrázaval 3200, Ñuñoa</p>
+                                <p><i class="fa-solid fa-phone"></i> +56 9 8888 4444</p>
+                            </div>
+                            <a href="#" class="btn-whatsapp-outline"><i class="fa-brands fa-whatsapp"></i> Hablar con la
+                                Clínica</a>
+                        </div>
+                    </div>
+
+                    <div class="pool-card">
+                        <div class="pool-cover"
+                            style="background-image: url('https://images.unsplash.com/photo-1581029413289-4089aedfc67a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60');">
+                        </div>
+                        <div class="pool-info">
+                            <h4>Red Salud Dental Express</h4>
+                            <p class="slogan">"Horarios extendidos y urgencias."</p>
+                            <div class="contact-data">
+                                <p><i class="fa-solid fa-location-dot"></i> Av. Pajaritos 1000, Maipú</p>
+                                <p><i class="fa-solid fa-phone"></i> +56 9 9999 5555</p>
+                            </div>
+                            <a href="#" class="btn-whatsapp-outline"><i class="fa-brands fa-whatsapp"></i> Hablar con la
+                                Clínica</a>
+                        </div>
+                    </div>
+
+                    <div class="pool-card">
+                        <div class="pool-cover"
+                            style="background-image: url('https://images.unsplash.com/photo-1596541223130-5d5644759082?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60');">
+                        </div>
+                        <div class="pool-info">
+                            <h4>Estudio Dental Santiago</h4>
+                            <p class="slogan">"Sonrisas perfectamente alineadas."</p>
+                            <div class="contact-data">
+                                <p><i class="fa-solid fa-location-dot"></i> Moneda 812, Santiago Centro</p>
+                                <p><i class="fa-solid fa-phone"></i> +56 9 1010 6666</p>
+                            </div>
+                            <a href="#" class="btn-whatsapp-outline"><i class="fa-brands fa-whatsapp"></i> Hablar con la
+                                Clínica</a>
+                        </div>
+                    </div>
+
+                    <div class="pool-card">
+                        <div class="pool-cover"
+                            style="background-image: url('https://images.unsplash.com/photo-1628177142898-93e46e48fac6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60');">
+                        </div>
+                        <div class="pool-info">
+                            <h4>Smile Design Center</h4>
+                            <p class="slogan">"Blanqueamiento en 1 sesión."</p>
+                            <div class="contact-data">
+                                <p><i class="fa-solid fa-location-dot"></i> Av. Ossa 234, La Reina</p>
+                                <p><i class="fa-solid fa-phone"></i> +56 9 2020 7777</p>
+                            </div>
+                            <a href="#" class="btn-whatsapp-outline"><i class="fa-brands fa-whatsapp"></i> Hablar con la
+                                Clínica</a>
+                        </div>
+                    </div>
+
+                    <div class="pool-card">
+                        <div class="pool-cover"
+                            style="background-image: url('https://images.unsplash.com/photo-1590680424564-9642539ec724?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60');">
+                        </div>
+                        <div class="pool-info">
+                            <h4>DentaCare Familia</h4>
+                            <p class="slogan">"La salud oral de toda tu familia."</p>
+                            <div class="contact-data">
+                                <p><i class="fa-solid fa-location-dot"></i> Vicuña Mackenna 100, Providencia</p>
+                                <p><i class="fa-solid fa-phone"></i> +56 9 3030 8888</p>
+                            </div>
+                            <a href="#" class="btn-whatsapp-outline"><i class="fa-brands fa-whatsapp"></i> Hablar con la
+                                Clínica</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container footer-inner">
+            <div class="footer-logo"><i class="fa-solid fa-tooth"></i> dentofacil.</div>
+            <p class="footer-tagline">Conectando pacientes con las mejores clínicas del mundo</p>
+            <div class="footer-socials">
+                <a href="#" title="YouTube" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" title="Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" title="Facebook" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" title="TikTok" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+            <div class="footer-divider"></div>
+            <p>© <span class="current-year">2026</span> Dentofacil. Todos los derechos reservados.</p>
+            <script>document.querySelector('.current-year').textContent = new Date().getFullYear();</script>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            let paisUser = urlParams.get('pais') || '';
+            paisUser = paisUser.toLowerCase().trim();
+
+            const avisoCobertura = document.getElementById('aviso-cobertura');
+            const tituloClinicas = document.querySelector('.premium-pool-card:first-child h3');
+
+            // Países que "simulamos" que ya tienen clínicas en nuestro sistema estático
+            const paisesConClinicas = ['chile', 'mexico'];
+
+            if (paisUser && !paisesConClinicas.includes(paisUser)) {
+                // No hay clínicas en su país: Mostramos el aviso y explicamos que lo de abajo es internacional
+                if (avisoCobertura) {
+                    avisoCobertura.style.display = 'block';
+                    const h3 = avisoCobertura.querySelector('h3');
+                    const nombrePais = paisUser.charAt(0).toUpperCase() + paisUser.slice(1);
+                    if (h3) h3.innerHTML = `¿Qué pasa si no hay clínicas disponibles hoy en <b>${nombrePais}</b>?`;
+                }
+            } else {
+                // Sí hay clínicas (o no puso país): Ocultamos el aviso de "no hay cobertura"
+                if (avisoCobertura) {
+                    avisoCobertura.style.display = 'none';
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

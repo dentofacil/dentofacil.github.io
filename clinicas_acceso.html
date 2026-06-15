@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Clínicas | Dentofacil</title>
+    <meta name="description"
+        content="Portal exclusivo para clínicas dentales. Accede a leads de pacientes verificados en tu zona y haz crecer tu práctica.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ── PAGE LAYOUT ── */
+        .clinic-access-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0a0a1a 0%, #0d1f1a 60%, #0a1a0d 100%);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .clinic-access-page .navbar {
+            background: rgba(10, 10, 26, 0.6);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 168, 107, 0.15);
+        }
+
+        /* ── HERO ── */
+        .access-hero {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding: 80px 20px 60px;
+        }
+
+        .access-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* ── LEFT: PITCH ── */
+        .access-pitch h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .access-pitch h1 span {
+            color: var(--color-primary);
+        }
+
+        .access-pitch p {
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .stat-row {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 10px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            display: block;
+        }
+
+        .stat-item .stat-label {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ── RIGHT: AUTH CARD ── */
+        .auth-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(0, 168, 107, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .auth-tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 4px;
+        }
+
+        .auth-tab {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.5);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .auth-tab.active {
+            background: var(--color-primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 168, 107, 0.3);
+        }
+
+        .auth-panel {
+            display: none;
+        }
+
+        .auth-panel.active {
+            display: block;
+        }
+
+        /* Input groups */
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 7px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease, background 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            background: rgba(0, 168, 107, 0.06);
+        }
+
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.25);
+        }
+
+        .form-input-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .btn-auth {
+            width: 100%;
+            padding: 14px;
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 5px;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-auth:hover {
+            background: var(--color-primary-dark, #009960);
+            box-shadow: 0 8px 25px rgba(0, 168, 107, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .form-divider {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.25);
+            font-size: 0.85rem;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .form-divider::before,
+        .form-divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .form-divider::before {
+            left: 0;
+        }
+
+        .form-divider::after {
+            right: 0;
+        }
+
+        .form-note {
+            text-align: center;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.3);
+            margin-top: 15px;
+        }
+
+        .form-note a {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        /* Lead info banner */
+        .lead-info-banner {
+            background: rgba(0, 168, 107, 0.1);
+            border: 1px solid rgba(0, 168, 107, 0.25);
+            border-radius: 10px;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.65);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .lead-info-banner i {
+            color: var(--color-primary);
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .access-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .access-pitch h1 {
+                font-size: 2rem;
+            }
+
+            .stat-row {
+                justify-content: center;
+            }
+        }
+
+        /* dark navbar override for this page */
+        .navbar-dark .nav-item {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .navbar-dark .nav-item:hover {
+            color: #fff;
+        }
+
+        .navbar-dark .logo-text {
+            color: #fff;
+        }
+
+        .navbar-dark .logo-icon {
+            color: var(--color-primary);
+        }
+
+        .footer-dark {
+            background: rgba(0, 0, 0, 0.4);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 25px 0;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.85rem;
+        }
+
+        .footer-dark .footer-logo {
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body class="clinic-access-page">
+    <header class="navbar navbar-dark">
+        <div class="container header-container">
+            <a href="index.html" class="logo" style="text-decoration:none;">
+                <i class="fa-solid fa-tooth logo-icon"></i>
+                <span class="logo-text">dentofacil<span class="logo-dot">.</span></span>
+            </a>
+            <nav class="nav-links">
+                <a href="clinicas_leads.html" class="nav-item">Ver Leads</a>
+                <a href="clinicas_creditos.html" class="nav-item">Créditos</a>
+                <a href="index.html" class="nav-item" style="opacity:.5;">← Volver</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="access-hero">
+        <div class="access-grid container">
+
+            <!-- LEFT: PITCH -->
+            <div class="access-pitch">
+                <h1>Accede a pacientes <span>reales</span> en tu zona, hoy.</h1>
+                <p>Dentofacil conecta a clínicas verificadas con pacientes que ya decidieron buscar atención. Tú eliges
+                    los leads que te interesan y pagas solo por los que quieres contactar.</p>
+
+                <div class="stat-row">
+                    <div class="stat-item">
+                        <span class="stat-number">+320</span>
+                        <span class="stat-label">Leads / mes</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">94%</span>
+                        <span class="stat-label">Tasa respuesta</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">0%</span>
+                        <span class="stat-label">Costo por llamada</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: AUTH CARD -->
+            <div class="auth-card">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" id="tab-login" onclick="switchTab('login')">Iniciar sesión</button>
+                    <button class="auth-tab" id="tab-register" onclick="switchTab('register')">Registrar
+                        clínica</button>
+                </div>
+
+                <!-- LOGIN PANEL -->
+                <div class="auth-panel active" id="panel-login">
+                    <div class="form-group">
+                        <label>Email de la clínica</label>
+                        <input class="form-input" type="email" id="login-email" placeholder="clinica@ejemplo.cl">
+                    </div>
+                    <div class="form-group">
+                        <label>Contraseña</label>
+                        <input class="form-input" type="password" id="login-pass" placeholder="••••••••">
+                    </div>
+                    <button class="btn-auth" onclick="handleLogin()">
+                        <i class="fa-solid fa-right-to-bracket"></i> Entrar al portal
+                    </button>
+                    <p class="form-note"><a href="#">¿Olvidaste tu contraseña?</a></p>
+                </div>
+
+                <!-- REGISTER PANEL -->
+                <div class="auth-panel" id="panel-register">
+                    <div class="lead-info-banner">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span>Tus datos deben coincidir con los que aparecen en el directorio de clínicas para los
+                            pacientes.</span>
+                    </div>
+
+                    <div class="form-input-row">
+                        <div class="form-group">
+                            <label>Nombre clínica</label>
+                            <input class="form-input" type="text" id="reg-nombre" placeholder="Ej: Clínica Dental Sur">
+                        </div>
+                        <div class="form-group">
+                            <label>RUT / Num. Registro</label>
+                            <input class="form-input" type="text" id="reg-rut" placeholder="12.345.678-9">
+                        </div>
+                    </div>
+
+                    <div class="form-input-row">
+                        <div class="form-group">
+                            <label>País</label>
+                            <input class="form-input" type="text" id="reg-pais" placeholder="Ej: Chile, México">
+                        </div>
+                        <div class="form-group">
+                            <label>Región / Ciudad</label>
+                            <input class="form-input" type="text" id="reg-region" placeholder="Ej: RM / Santiago">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Dirección</label>
+                        <input class="form-input" type="text" id="reg-direccion"
+                            placeholder="Ej: Av. Apoquindo 4501, Las Condes">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Link Logo (Opcional - Formato JPG/PNG)</label>
+                        <input class="form-input" type="url" id="reg-logo" placeholder="https://tu-sitio.com/logo.png">
+                    </div>
+
+                    <div class="form-input-row">
+                        <div class="form-group">
+                            <label>Email de contacto</label>
+                            <input class="form-input" type="email" id="reg-email" placeholder="admin@clinica.cl">
+                        </div>
+                        <div class="form-group">
+                            <label>Número WhatsApp</label>
+                            <input class="form-input" type="tel" id="reg-telefono" placeholder="+56 9 XXXX XXXX">
+                        </div>
+                    </div>
+
+                    <button class="btn-auth" onclick="handleRegister()">
+                        <i class="fa-solid fa-building-circle-check"></i> Crear cuenta de clínica
+                    </button>
+                    <p class="form-note">Al registrarte aceptas los <a href="#">Términos de Servicio</a> y la <a
+                            href="#">Política de Privacidad</a>.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-inner">
+            <div class="footer-logo"><i class="fa-solid fa-tooth"></i> dentofacil.</div>
+            <p class="footer-tagline">Conectando pacientes con las mejores clínicas del mundo</p>
+            <div class="footer-socials">
+                <a href="#" title="YouTube" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" title="Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" title="Facebook" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" title="TikTok" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+            <div class="footer-divider"></div>
+            <p>© <span class="current-year">2026</span> Dentofacil. Todos los derechos reservados.</p>
+            <script>document.querySelectorAll('.current-year').forEach(el => el.textContent = new Date().getFullYear());</script>
+        </div>
+    </footer>
+
+    <script>
+        function switchTab(tab) {
+            document.getElementById('tab-login').classList.toggle('active', tab === 'login');
+            document.getElementById('tab-register').classList.toggle('active', tab === 'register');
+            document.getElementById('panel-login').classList.toggle('active', tab === 'login');
+            document.getElementById('panel-register').classList.toggle('active', tab === 'register');
+        }
+
+        function handleLogin() {
+            const email = document.getElementById('login-email').value.trim();
+            const pass = document.getElementById('login-pass').value.trim();
+            if (!email || !pass) {
+                alert('Por favor completa todos los campos.');
+                return;
+            }
+            // Placeholder: redirect to leads page after login
+            window.location.href = 'clinicas_leads.html';
+        }
+
+        function handleRegister() {
+            const btn = document.querySelector('#panel-register .btn-auth');
+            const originalText = btn.innerHTML;
+
+            const nombre = document.getElementById('reg-nombre').value.trim();
+            const rut = document.getElementById('reg-rut').value.trim();
+            const pais = document.getElementById('reg-pais').value.trim();
+            const region = document.getElementById('reg-region').value.trim();
+            const direccion = document.getElementById('reg-direccion').value.trim();
+            const email = document.getElementById('reg-email').value.trim();
+            const telefono = document.getElementById('reg-telefono').value.trim();
+            const logo = document.getElementById('reg-logo').value.trim();
+
+            if (!nombre || !rut || !pais || !email) {
+                alert('Por favor completa los campos principales (Nombre, Registro, País, Email).');
+                return;
+            }
+
+            // UI Feedback
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Registrando Clínica...';
+            btn.disabled = true;
+
+            // Form Ninja 2 (Registro Clínicas B2B)
+            const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLScQlGAaQVD_ZHY0nbRU85N9voENaaLnTvRxFeb9zgx6CYSTcQ/formResponse";
+
+            const formData = new URLSearchParams();
+            formData.append("entry.1687500219", nombre || '-');
+            formData.append("entry.537063971", rut || '-');
+            formData.append("entry.1729420992", pais || '-');
+            formData.append("entry.593615378", region || '-');
+            formData.append("entry.972616313", direccion || '-');
+            formData.append("entry.1766753241", email || '-');
+            formData.append("entry.2006387742", telefono || '-');
+            formData.append("entry.741755655", logo || '-');
+
+            fetch(FORM_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: formData
+            }).then(() => {
+                alert(`¡Bienvenido a la red global Dentofacil, ${nombre}! Tu cuenta B2B ha sido validada.`);
+                window.location.href = 'clinicas_leads.html';
+            }).catch(err => {
+                console.error("Ninja Error: ", err);
+                alert("Error de conexión con el Bunker API al registrar.");
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            });
+        }
+    </script>
+
+</body>
+
+</html>

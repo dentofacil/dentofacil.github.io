@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dentofacil | Encuentra tu Dentista Ideal</title>
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fa-solid fa-tooth logo-icon"></i>
+                <span class="logo-text">dentofacil<span class="logo-dot">.</span></span>
+            </div>
+            <nav class="nav-links">
+                <a href="#como-funciona" class="nav-item">Cómo Funciona</a>
+                <a href="clinicas_acceso.html" class="btn-clinic">Acceso Clínicas <i
+                        class="fa-solid fa-arrow-right"></i></a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- HERO WIZARD SECTION -->
+        <section class="hero-section">
+            <div class="container hero-grid">
+
+                <!-- Left: Wizard Interaction -->
+                <div class="hero-wizard">
+                    <div class="hero-text">
+                        <h1><span class="wave">👋</span> ¡Hola! Queremos ayudarte a encontrar a tu dentista ideal.</h1>
+                        <p>Dinos qué necesitas paso a paso y recibe propuestas de clínicas en tu zona. Nuestro servicio
+                            es 100% gratuito.</p>
+                    </div>
+
+                    <div class="wizard-container">
+                        <!-- Step 1: Tratamiento -->
+                        <div id="wizard-step-1" class="wizard-step active">
+                            <div class="step-header">
+                                <span class="step-badge">Paso 1 de 6</span>
+                                <h2>¿Qué tratamiento buscas?</h2>
+                            </div>
+
+                            <div class="treatment-grid">
+                                <button class="treatment-btn" data-next="2" data-value="urgencia">
+                                    <i class="fa-solid fa-truck-medical icon-alert"></i> Urgencia / Dolor
+                                </button>
+                                <button class="treatment-btn" data-next="2" data-value="limpieza">
+                                    <i class="fa-solid fa-wand-magic-sparkles"></i> Limpieza / Blanqueo
+                                </button>
+                                <button class="treatment-btn" data-next="2" data-value="implantes">
+                                    <i class="fa-solid fa-syringe"></i> Implantes
+                                </button>
+                                <button class="treatment-btn" data-next="2" data-value="ortodoncia">
+                                    <i class="fa-solid fa-face-smile-beam"></i> Ortodoncia (Brackets)
+                                </button>
+                                <button class="treatment-btn" data-next="2" data-value="caries">
+                                    <i class="fa-solid fa-tooth"></i> Caries / Tapadura
+                                </button>
+                                <button class="treatment-btn" data-next="2" data-value="evaluacion">
+                                    <i class="fa-solid fa-stethoscope"></i> Evaluación General
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Presupuesto -->
+                        <div id="wizard-step-2" class="wizard-step">
+                            <div class="step-header">
+                                <span class="step-badge">Paso 2 de 6</span>
+                                <h2>¿Cuál es tu presupuesto aproximado?</h2>
+                            </div>
+
+                            <div class="treatment-grid">
+                                <button class="treatment-btn" data-next="3" data-value="bajo">
+                                    <i class="fa-solid fa-coins"></i> Menos de $50.000
+                                </button>
+                                <button class="treatment-btn" data-next="3" data-value="medio">
+                                    <i class="fa-solid fa-sack-dollar"></i> Entre $50.000 y $200.000
+                                </button>
+                                <button class="treatment-btn" data-next="3" data-value="alto">
+                                    <i class="fa-solid fa-gem"></i> Más de $200.000
+                                </button>
+                                <button class="treatment-btn" data-next="3" data-value="nodefinido">
+                                    <i class="fa-solid fa-circle-question"></i> Aún no lo sé
+                                </button>
+                            </div>
+                            <button class="btn-back-small" data-back="1"><i class="fa-solid fa-chevron-left"></i>
+                                Volver</button>
+                        </div>
+
+                        <!-- Step 3: Urgencia -->
+                        <div id="wizard-step-3" class="wizard-step">
+                            <div class="step-header">
+                                <span class="step-badge">Paso 3 de 6</span>
+                                <h2>¿Con qué urgencia necesitas atención?</h2>
+                            </div>
+
+                            <div class="treatment-grid">
+                                <button class="treatment-btn" data-next="4" data-value="hoy">
+                                    <i class="fa-solid fa-bolt icon-alert"></i> Lo antes posible
+                                </button>
+                                <button class="treatment-btn" data-next="4" data-value="semana">
+                                    <i class="fa-solid fa-calendar-week"></i> Esta semana
+                                </button>
+                                <button class="treatment-btn" data-next="4" data-value="mes">
+                                    <i class="fa-solid fa-calendar-days"></i> Este mes
+                                </button>
+                                <button class="treatment-btn" data-next="4" data-value="sin_prisa">
+                                    <i class="fa-solid fa-hourglass"></i> Sin prisa, estoy cotizando
+                                </button>
+                            </div>
+                            <button class="btn-back-small" data-back="2"><i class="fa-solid fa-chevron-left"></i>
+                                Volver</button>
+                        </div>
+
+                        <!-- Step 4: Seguro Médico -->
+                        <div id="wizard-step-4" class="wizard-step">
+                            <div class="step-header">
+                                <span class="step-badge">Paso 4 de 6</span>
+                                <h2>¿Tienes seguro dental?</h2>
+                            </div>
+
+                            <div class="treatment-grid" style="grid-template-columns: 1fr 1fr;">
+                                <button class="treatment-btn" data-next="5" data-value="Si">
+                                    <i class="fa-solid fa-check icon-quality"></i> Sí
+                                </button>
+                                <button class="treatment-btn" data-next="5" data-value="No">
+                                    <i class="fa-solid fa-xmark icon-alert"></i> No
+                                </button>
+                            </div>
+                            <button class="btn-back-small" data-back="3"><i class="fa-solid fa-chevron-left"></i>
+                                Volver</button>
+                        </div>
+
+                        <!-- Step 5: Nombre -->
+                        <div id="wizard-step-5" class="wizard-step">
+                            <div class="step-header">
+                                <span class="step-badge">Paso 5 de 6</span>
+                                <h2>¿Cómo te llamas?</h2>
+                            </div>
+
+                            <div class="location-wrapper">
+                                <div class="input-group">
+                                    <i class="fa-solid fa-user"></i>
+                                    <input type="text" id="nombre-input" placeholder="Tu nombre..." autocomplete="off">
+                                </div>
+                                <div class="action-buttons">
+                                    <button class="btn-back" id="back-to-step-4">
+                                        <i class="fa-solid fa-chevron-left"></i> Volver
+                                    </button>
+                                    <button class="btn-primary" id="btn-next-step-5">
+                                        Siguiente <i class="fa-solid fa-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 6: Comuna -->
+                        <div id="wizard-step-6" class="wizard-step">
+                            <div class="step-header">
+                                <span class="step-badge">Paso 6 de 6</span>
+                                <h2>¿En qué comuna te encuentras?</h2>
+                            </div>
+
+                            <div class="location-wrapper">
+                                <div class="input-group">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <input type="text" id="comuna-input" placeholder="Ej: Las Condes, Santiago..."
+                                        autocomplete="off">
+                                </div>
+                                <div class="action-buttons">
+                                    <button class="btn-back" id="back-to-step-5">
+                                        <i class="fa-solid fa-chevron-left"></i> Volver
+                                    </button>
+                                    <button class="btn-primary" id="btn-submit-wizard">
+                                        Buscar Clínicas <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 7: WhatsApp Validation (Final) -->
+                        <div id="wizard-step-7" class="wizard-step">
+                            <div class="success-message">
+                                <div class="success-icon">
+                                    <i class="fa-solid fa-check"></i>
+                                </div>
+                                <h2>¡Casi listo!</h2>
+                                <p>Hemos encontrado <strong>varias clínicas</strong> en tu zona listas para atenderte.
+                                </p>
+                                <p class="whatsapp-instruction">Para que las clínicas comiencen a enviarte propuestas
+                                    personalizadas y se pongan en contacto contigo, haz clic abajo para activar tu
+                                    solicitud por WhatsApp.</p>
+
+                                <button class="btn-whatsapp" id="btn-whatsapp">
+                                    <i class="fa-brands fa-whatsapp"></i> Validar por WhatsApp
+                                </button>
+                            </div>
+                        </div>
+                    </div><!-- end wizard-container -->
+                </div><!-- end hero-wizard -->
+
+                <!-- Right: Visual Trust -->
+                <div class="hero-visual">
+                    <div class="image-wrapper">
+                        <!-- We use a placeholder matching the dental vibe -->
+                        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Paciente feliz en el dentista">
+
+                        <div class="floating-badge badge-top">
+                            <div class="badge-icon"><i class="fa-solid fa-bolt"></i></div>
+                            <div class="badge-text">
+                                <strong>Rápido</strong>
+                                <span>Respuestas en &lt; 1 hora</span>
+                            </div>
+                        </div>
+
+                        <div class="floating-badge badge-bottom">
+                            <div class="badge-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                            <div class="badge-text">
+                                <strong>Verificados</strong>
+                                <span>Clínicas certificadas</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- HOW IT WORKS SECTION -->
+        <section id="como-funciona" class="features-section">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Cómo funciona Dentofacil</h2>
+                    <p>Un proceso diseñado para darte el poder de elegir, sin presiones ni cobros ocultos.</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-hand-pointer"></i></div>
+                        <h3>1. Cuéntanos qué buscas</h3>
+                        <p>Completa nuestro asistente en 30 segundos. Dile al sistema qué tratamiento necesitas y dónde.
+                        </p>
+                    </div>
+
+                    <div class="feature-card highlighted">
+                        <div class="feature-icon"><i class="fa-solid fa-satellite-dish"></i></div>
+                        <h3>2. Conectamos contigo</h3>
+                        <p>Notificamos instantáneamente a la red de clínicas verificadas en tu zona para que preparen
+                            sus ofertas.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                        <h3>3. Tú tienes el control</h3>
+                        <p>Recibe propuestas, compara precios y calidad, y agenda con la clínica que más te guste.
+                            ¡Pagas directo en la clínica!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Premium Pool section has been moved to success.html -->
+
+        <!-- TESTIMONIALS SECTION -->
+        <section class="testimonials-section">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Pacientes felices con su sonrisa</h2>
+                    <p>Cientos de pacientes ya encontraron su tratamiento ideal sin pagar de más.</p>
+                </div>
+
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i></div>
+                        <p class="testimonial-text">"Pude cotizar mis brackets en varias clínicas cerca de mi casa sin
+                            moverme del escritorio. Me ahorró muchísimo tiempo y encontré un precio excelente."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"><img src="https://randomuser.me/api/portraits/women/44.jpg"
+                                    alt="Foto de paciente"></div>
+                            <div class="author-info">
+                                <h4>Camila M.</h4>
+                                <p>Ortodoncia en Ñuñoa</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i></div>
+                        <p class="testimonial-text">"Tuve un dolor de muelas terrible a las 10 PM. Entré al asistente de
+                            Dentofacil y al día siguiente a primera hora ya tenía una clínica lista para extraerme la
+                            muela del juicio."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"><img src="https://randomuser.me/api/portraits/men/32.jpg"
+                                    alt="Foto de paciente"></div>
+                            <div class="author-info">
+                                <h4>Jorge R.</h4>
+                                <p>Urgencia en Las Condes</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i></div>
+                        <p class="testimonial-text">"Desconfiaba un poco al principio, pero las clínicas que me
+                            contactaron eran súper profesionales y el sistema de búsqueda es totalmente gratis."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"><img src="https://randomuser.me/api/portraits/women/68.jpg"
+                                    alt="Foto de paciente"></div>
+                            <div class="author-info">
+                                <h4>Valeria T.</h4>
+                                <p>Implantes en Providencia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-cta-container">
+                    <!-- Link al Google Forms de Reseñas para recibir feedback real -->
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeHPZsJyaDkP9PwkSeRvpt_d1-1HjaPjvrfUFXOJLC1jKsZZA/viewform"
+                        target="_blank" class="btn-review-form">
+                        <i class="fa-regular fa-face-smile"></i> ¿Ya te atendiste? Déjanos tu reseña →
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container footer-inner">
+            <div class="footer-logo"><i class="fa-solid fa-tooth"></i> dentofacil.</div>
+            <p class="footer-tagline">Conectando pacientes con las mejores clínicas del mundo</p>
+            <div class="footer-socials">
+                <a href="#" title="YouTube" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" title="Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" title="Facebook" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" title="TikTok" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+            <div class="footer-divider"></div>
+            <p>© <span class="current-year">2026</span> Dentofacil. Todos los derechos reservados.</p>
+            <script>document.querySelector('.current-year').textContent = new Date().getFullYear();</script>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

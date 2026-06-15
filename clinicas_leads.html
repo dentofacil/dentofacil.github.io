@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Leads | Dentofacil Clínicas</title>
+    <meta name="description"
+        content="Explora y compra leads de pacientes verificados en tu zona. Elige los que más te convengan y paga solo por los que quieres.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: #f6f8fa;
+            color: #1a1a2e;
+            min-height: 100vh;
+        }
+
+        /* ── TOPBAR / CLINIC NAVBAR ── */
+        .clinic-navbar {
+            background: #fff;
+            border-bottom: 1px solid #e8edf2;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+            padding: 0;
+        }
+
+        .clinic-navbar .header-container {
+            height: 64px;
+        }
+
+        .clinic-balance {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #e8fff6, #f0fff8);
+            border: 1px solid rgba(0, 168, 107, 0.2);
+            border-radius: 10px;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+        }
+
+        .clinic-balance .balance-amount {
+            font-weight: 700;
+            color: var(--color-primary);
+            font-size: 1.1rem;
+        }
+
+        .clinic-balance .balance-label {
+            color: rgba(0, 0, 0, 0.4);
+            font-size: 0.8rem;
+        }
+
+        .btn-buy-credits {
+            padding: 8px 18px;
+            background: var(--color-primary);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .btn-buy-credits:hover {
+            background: #009960;
+            box-shadow: 0 4px 12px rgba(0, 168, 107, 0.3);
+        }
+
+        /* ── MAIN CONTENT ── */
+        .leads-main {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 35px 20px 60px;
+        }
+
+        .leads-layout {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 30px;
+            align-items: start;
+        }
+
+        /* ── SIDEBAR WIDGET ── */
+        .leads-sidebar {
+            background: #fff;
+            border: 1px solid #e8edf2;
+            border-radius: 16px;
+            padding: 24px;
+            position: sticky;
+            top: 85px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+        }
+
+        .sidebar-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sidebar-title i {
+            color: var(--color-primary);
+        }
+
+        .competitor-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .competitor-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .competitor-avatar {
+            width: 40px;
+            height: 40px;
+            background: #f0f4f8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            font-size: 1.2rem;
+            overflow: hidden;
+        }
+
+        .competitor-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .competitor-info h4 {
+            font-size: 0.9rem;
+            color: #374151;
+            margin-bottom: 2px;
+        }
+
+        .competitor-info p {
+            font-size: 0.75rem;
+            color: #9ca3af;
+        }
+
+        .competitor-status {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #25D366;
+            /* Online green */
+            margin-left: auto;
+            position: relative;
+        }
+
+        .competitor-status.online::after {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border-radius: 50%;
+            background: rgba(37, 211, 102, 0.4);
+            animation: pulse-online 2s infinite;
+        }
+
+        @keyframes pulse-online {
+            0% {
+                transform: scale(0.5);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        .competitor-status.offline {
+            background: #d1d5db;
+        }
+
+        .competitor-status.offline::after {
+            display: none;
+        }
+
+        .competition-stats {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #e8edf2;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-bottom: 8px;
+        }
+
+        .stat-row strong {
+            color: #1a1a2e;
+        }
+
+        .leads-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .leads-header h1 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+
+        .leads-header p {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-top: 3px;
+        }
+
+        /* ── FILTERS ── */
+        .leads-filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-chip {
+            padding: 7px 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 50px;
+            background: #fff;
+            color: #6b7280;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 500;
+        }
+
+        .filter-chip.active,
+        .filter-chip:hover {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+            background: rgba(0, 168, 107, 0.05);
+        }
+
+        .filter-chip.active {
+            background: var(--color-primary);
+            color: #fff;
+        }
+
+        /* ── LEAD CARDS GRID ── */
+        .leads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .lead-card {
+            background: #fff;
+            border: 1px solid #e8edf2;
+            border-radius: 16px;
+            padding: 22px;
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lead-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+            border-color: rgba(0, 168, 107, 0.3);
+        }
+
+        .lead-card.frozen {
+            border-color: #bae6fd;
+        }
+
+        .lead-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 14px;
+        }
+
+        .lead-type-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-urgent {
+            background: #fff1f0;
+            color: #e53e3e;
+        }
+
+        .badge-implant {
+            background: #f0f4ff;
+            color: #4c51bf;
+        }
+
+        .badge-ortho {
+            background: #fef9f0;
+            color: #d69e2e;
+        }
+
+        .badge-clean {
+            background: #f0fff4;
+            color: #2d7a4f;
+        }
+
+        .badge-caries {
+            background: #fff5f5;
+            color: #c05621;
+        }
+
+        .badge-eval {
+            background: #f0f7ff;
+            color: #2b6cb0;
+        }
+
+        .lead-cost {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        .lead-cost span {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            font-weight: 400;
+            display: block;
+            text-align: right;
+        }
+
+        .lead-summary {
+            font-size: 0.92rem;
+            color: #374151;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .lead-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .meta-tag {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.8rem;
+            color: #6b7280;
+            background: #f6f8fa;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        .meta-tag i {
+            color: var(--color-primary);
+            font-size: 0.75rem;
+        }
+
+        /* Blur overlay for hidden data */
+        .lead-hidden {
+            filter: blur(5px);
+            user-select: none;
+            pointer-events: none;
+        }
+
+        .lead-unlock-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, #fff 60%, transparent);
+            padding: 30px 22px 22px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-unlock {
+            width: 100%;
+            padding: 12px;
+            background: var(--color-primary);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-unlock:hover {
+            background: #009960;
+            box-shadow: 0 6px 18px rgba(0, 168, 107, 0.35);
+        }
+
+        .btn-freeze {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 8px;
+            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.35);
+        }
+
+        .btn-freeze:hover {
+            background: linear-gradient(135deg, #0284c7 0%, #075985 100%);
+            box-shadow: 0 6px 20px rgba(2, 132, 199, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .unlock-cost-label {
+            font-size: 0.78rem;
+            color: #9ca3af;
+        }
+
+        /* Urgency dot pulse */
+        .urgency-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #e53e3e;
+            display: inline-block;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                box-shadow: 0 0 0 0 rgba(229, 62, 62, 0.4);
+            }
+
+            50% {
+                opacity: 0.8;
+                box-shadow: 0 0 0 6px rgba(229, 62, 62, 0);
+            }
+        }
+
+        /* ── FROZEN OVERLAY ── */
+        .frozen-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(240, 249, 255, 0.85);
+            /* light blue base */
+            backdrop-filter: blur(4px);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .frozen-icon {
+            font-size: 2.5rem;
+            color: #0ea5e9;
+            margin-bottom: 10px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .frozen-text {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0369a1;
+        }
+
+        .frozen-desc {
+            font-size: 0.82rem;
+            color: #0284c7;
+            margin-top: 5px;
+            line-height: 1.4;
+        }
+
+        .frozen-timer {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #0284c7;
+            margin-top: 10px;
+            background: #fff;
+            padding: 6px 18px;
+            border-radius: 50px;
+            border: 1px solid #bae6fd;
+            box-shadow: 0 4px 6px rgba(2, 132, 199, 0.1);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* ── INFO BANNER ── */
+        .leads-info-bar {
+            background: linear-gradient(135deg, #e8fff6 0%, #f0fff8 100%);
+            border: 1px solid rgba(0, 168, 107, 0.2);
+            border-radius: 12px;
+            padding: 14px 20px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.88rem;
+            color: #374151;
+        }
+
+        .leads-info-bar i {
+            color: var(--color-primary);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .leads-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .leads-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .leads-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar clinic-navbar">
+        <div class="container header-container">
+            <a href="index.html" class="logo" style="text-decoration:none;">
+                <i class="fa-solid fa-tooth logo-icon"></i>
+                <span class="logo-text">dentofacil<span class="logo-dot">.</span></span>
+            </a>
+            <nav class="nav-links" style="gap:12px;">
+                <div class="clinic-balance">
+                    <i class="fa-solid fa-coins" style="color:var(--color-primary);"></i>
+                    <div>
+                        <div class="balance-amount" id="credit-count">12</div>
+                        <div class="balance-label">créditos</div>
+                    </div>
+                </div>
+                <a href="clinicas_creditos.html" class="btn-buy-credits">
+                    <i class="fa-solid fa-plus"></i> Comprar créditos
+                </a>
+                <a href="clinicas_acceso.html" class="nav-item" style="color:#9ca3af; font-size:0.85rem;">
+                    <i class="fa-solid fa-right-from-bracket"></i> Salir
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="leads-main">
+        <div class="leads-layout">
+            <div class="leads-content">
+                <div class="leads-header">
+                    <div>
+                        <h1>Leads disponibles 🎯</h1>
+                        <p>Pacientes buscando atención en tu zona. Desbloquea contacto compartido o congélalos para ti.
+                        </p>
+                    </div>
+                    <div style="color:#6b7280; font-size:0.85rem;">
+                        <i class="fa-solid fa-rotate" style="color:var(--color-primary);"></i>
+                        Actualizado hace 3 min
+                    </div>
+                </div>
+
+                <div class="leads-info-bar">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span><strong>NUEVO:</strong> Ahora puedes "Congelar" un lead por 12 horas usando 5 créditos.
+                        Durante este
+                        tiempo, ninguna otra clínica tendrá acceso a él.</span>
+                </div>
+
+                <!-- FILTERS -->
+                <div class="leads-filters">
+                    <button class="filter-chip active" onclick="filterLeads('all', this)">Todos</button>
+                    <button class="filter-chip" onclick="filterLeads('urgencia', this)">🚨 Urgencia</button>
+                    <button class="filter-chip" onclick="filterLeads('implantes', this)">🦷 Implantes</button>
+                    <button class="filter-chip" onclick="filterLeads('ortodoncia', this)">😬 Ortodoncia</button>
+                    <button class="filter-chip" onclick="filterLeads('limpieza', this)">✨ Limpieza</button>
+                    <button class="filter-chip" onclick="filterLeads('caries', this)">🦠 Caries</button>
+                </div>
+
+                <!-- LEADS GRID -->
+                <div class="leads-grid" id="leads-grid">
+                    <!-- Cards injected by JS -->
+                </div>
+            </div> <!-- End leads-content -->
+
+            <!-- SIDEBAR WIDGET: COMPETITORS -->
+            <aside class="leads-sidebar">
+                <div class="sidebar-title">
+                    <i class="fa-solid fa-eye"></i> Competencia Local
+                </div>
+
+                <div class="competitor-list">
+                    <div class="competitor-item">
+                        <div class="competitor-avatar"><img
+                                src="https://ui-avatars.com/api/?name=C+D&background=0D8ABC&color=fff"
+                                alt="Clínica Logo"></div>
+                        <div class="competitor-info">
+                            <h4>Clínica Dental...</h4>
+                            <p>En línea (Providencia)</p>
+                        </div>
+                        <div class="competitor-status online"></div>
+                    </div>
+
+                    <div class="competitor-item">
+                        <div class="competitor-avatar"><img
+                                src="https://ui-avatars.com/api/?name=O+S&background=F56565&color=fff"
+                                alt="Clínica Logo"></div>
+                        <div class="competitor-info">
+                            <h4>Odonto Salu...</h4>
+                            <p>Viendo perfil de implante</p>
+                        </div>
+                        <div class="competitor-status online"></div>
+                    </div>
+
+                    <div class="competitor-item">
+                        <div class="competitor-avatar"><img
+                                src="https://ui-avatars.com/api/?name=C+S&background=38B2AC&color=fff"
+                                alt="Clínica Logo"></div>
+                        <div class="competitor-info">
+                            <h4>Centro Sonri...</h4>
+                            <p>Hace 15 min (Las Condes)</p>
+                        </div>
+                        <div class="competitor-status offline"></div>
+                    </div>
+
+                    <div class="competitor-item">
+                        <div class="competitor-avatar"><img
+                                src="https://ui-avatars.com/api/?name=E+M&background=ED8936&color=fff"
+                                alt="Clínica Logo"></div>
+                        <div class="competitor-info">
+                            <h4>Especialistas...</h4>
+                            <p>Desbloqueó 1 lead hoy</p>
+                        </div>
+                        <div class="competitor-status offline"></div>
+                    </div>
+                </div>
+
+                <div class="competition-stats">
+                    <div class="stat-row">
+                        <span>Clínicas en tu zona:</span>
+                        <strong>14 activas</strong>
+                    </div>
+                    <div class="stat-row">
+                        <span>Leads desbloqueados hoy:</span>
+                        <strong>32 leads</strong>
+                    </div>
+                    <div class="stat-row" style="color:var(--color-primary); margin-top:8px;">
+                        <span><i class="fa-solid fa-arrow-up-right-dots"></i> Demanda alta ahora</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <script>
+        const LEADS = [
+            {
+                id: 'DF-2041',
+                tipo: 'urgencia',
+                badge: 'badge-urgent',
+                label: 'Urgencia / Dolor',
+                icon: 'fa-truck-medical',
+                nombre: 'Carlos R.',
+                resumen: 'Paciente masculino busca atención de urgencia por dolor molar intenso.',
+                ubicacion: 'Las Condes',
+                presupuesto: 'Menos de $50.000',
+                urgencia: 'Lo antes posible',
+                tiempo: 'hace 8 min',
+                creditos: 1,
+                urgente: true,
+                freezeEndTime: null
+            },
+            {
+                id: 'DF-2038',
+                tipo: 'implantes',
+                badge: 'badge-implant',
+                label: 'Implantes',
+                icon: 'fa-syringe',
+                nombre: 'Laura M.',
+                resumen: 'Paciente femenina busca cotización para 2 implantes dentales zona posterior.',
+                ubicacion: 'Providencia',
+                presupuesto: 'Más de $200.000',
+                urgencia: 'Este mes',
+                tiempo: 'hace 22 min',
+                creditos: 2,
+                urgente: false,
+                freezeEndTime: Date.now() + (1000 * 60 * 60 * 9.2) // Frozen scenario
+            },
+            {
+                id: 'DF-2035',
+                tipo: 'ortodoncia',
+                badge: 'badge-ortho',
+                label: 'Ortodoncia',
+                icon: 'fa-face-smile-beam',
+                nombre: 'Sebastián V.',
+                resumen: 'Joven adulto interesado en brackets metálicos o invisibles. Cotizando opciones.',
+                ubicacion: 'Ñuñoa',
+                presupuesto: 'Entre $50.000 y $200.000',
+                urgencia: 'Sin prisa, estoy cotizando',
+                tiempo: 'hace 35 min',
+                creditos: 1,
+                urgente: false,
+                freezeEndTime: null
+            },
+            {
+                id: 'DF-2030',
+                tipo: 'limpieza',
+                badge: 'badge-clean',
+                label: 'Limpieza / Blanqueo',
+                icon: 'fa-wand-magic-sparkles',
+                nombre: 'Ana C.',
+                resumen: 'Paciente que busca limpieza dental profunda y cotización para blanqueamiento.',
+                ubicacion: 'Vitacura',
+                presupuesto: 'Entre $50.000 y $200.000',
+                urgencia: 'Esta semana',
+                tiempo: 'hace 51 min',
+                creditos: 1,
+                urgente: false,
+                freezeEndTime: Date.now() + (1000 * 60 * 60 * 2.5) // Frozen scenario
+            },
+            {
+                id: 'DF-2027',
+                tipo: 'urgencia',
+                badge: 'badge-urgent',
+                label: 'Urgencia / Dolor',
+                icon: 'fa-truck-medical',
+                nombre: 'Mario F.',
+                resumen: 'Dolor agudo en muela del juicio. Busca extracción o alivio urgente.',
+                ubicacion: 'Maipú',
+                presupuesto: 'Menos de $50.000',
+                urgencia: 'Lo antes posible',
+                tiempo: 'hace 1 hora',
+                creditos: 1,
+                urgente: true,
+                freezeEndTime: null
+            },
+            {
+                id: 'DF-2024',
+                tipo: 'caries',
+                badge: 'badge-caries',
+                label: 'Caries / Tapadura',
+                icon: 'fa-tooth',
+                nombre: 'Rosa P.',
+                resumen: 'Múltiples caries detectadas en chequeo previo. Busca cotización para tratamiento.',
+                ubicacion: 'La Florida',
+                presupuesto: 'Entre $50.000 y $200.000',
+                urgencia: 'Esta semana',
+                tiempo: 'hace 1.5 horas',
+                creditos: 1,
+                urgente: false,
+                freezeEndTime: null
+            },
+            {
+                id: 'DF-2021',
+                tipo: 'implantes',
+                badge: 'badge-implant',
+                label: 'Implantes',
+                icon: 'fa-syringe',
+                nombre: 'José A.',
+                resumen: 'Paciente interesado en rehablitación oral completa con implantes superiores.',
+                ubicacion: 'Las Condes',
+                presupuesto: 'Más de $200.000',
+                urgencia: 'Este mes',
+                tiempo: 'hace 2 horas',
+                creditos: 3,
+                urgente: false,
+                freezeEndTime: null
+            },
+            {
+                id: 'DF-2018',
+                tipo: 'limpieza',
+                badge: 'badge-clean',
+                label: 'Limpieza / Blanqueo',
+                icon: 'fa-wand-magic-sparkles',
+                nombre: 'Valentina O.',
+                resumen: 'Primera limpieza dental del año, solicita agenda para próxima semana.',
+                ubicacion: 'Providencia',
+                presupuesto: 'Menos de $50.000',
+                urgencia: 'Esta semana',
+                tiempo: 'hace 3 horas',
+                creditos: 1,
+                urgente: false,
+                freezeEndTime: null
+            },
+        ];
+
+        let activeFilter = 'all';
+
+        function filterLeads(tipo, btn) {
+            activeFilter = tipo;
+            document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+            btn.classList.add('active');
+            renderLeads();
+        }
+
+        function renderLeads() {
+            const grid = document.getElementById('leads-grid');
+            const filtered = activeFilter === 'all' ? LEADS : LEADS.filter(l => l.tipo === activeFilter);
+            grid.innerHTML = filtered.map(lead => buildCard(lead)).join('');
+        }
+
+        function buildCard(lead) {
+            const isFrozen = lead.freezeEndTime && lead.freezeEndTime > Date.now();
+            const dot = lead.urgente ? '<span class="urgency-dot" style="margin-left:4px;"></span>' : '';
+
+            let cardClasses = "lead-card";
+            if (isFrozen) cardClasses += " frozen";
+
+            let overlayHTML = '';
+            // If frozen, display the overlay over the entire card content
+            if (isFrozen) {
+                overlayHTML = `
+                <div class="frozen-overlay">
+                    <i class="fa-solid fa-snowflake frozen-icon"></i>
+                    <div class="frozen-text">Ventaja Activa</div>
+                    <div class="frozen-desc">Una clínica ya tiene exclusividad<br>sobre este paciente.</div>
+                    <div class="frozen-timer" data-timer="${lead.freezeEndTime}">--:--:--</div>
+                </div>`;
+            }
+
+            return `
+            <div class="${cardClasses}" data-id="${lead.id}" data-tipo="${lead.tipo}">
+                ${overlayHTML}
+                <div class="lead-card-top">
+                    <span class="lead-type-badge ${lead.badge}">
+                        <i class="fa-solid ${lead.icon}"></i> ${lead.label} ${dot}
+                    </span>
+                    <div class="lead-cost">
+                        ${lead.creditos} crédito${lead.creditos > 1 ? 's' : ''}
+                        <span>${lead.id} · ${lead.tiempo}</span>
+                    </div>
+                </div>
+
+                <p class="lead-summary">${lead.resumen}</p>
+
+                <div class="lead-meta">
+                    <span class="meta-tag"><i class="fa-solid fa-location-dot"></i> ${lead.ubicacion}</span>
+                    <span class="meta-tag"><i class="fa-solid fa-coins"></i> ${lead.presupuesto}</span>
+                    <span class="meta-tag"><i class="fa-solid fa-bolt"></i> ${lead.urgencia}</span>
+                </div>
+
+                <!-- Hidden contact data (revealed on purchase) -->
+                <div style="position:relative; padding-bottom: 120px;">
+                    <div class="lead-hidden" style="font-size:0.85rem; color:#374151; line-height:1.8;">
+                        <p><i class="fa-solid fa-user"></i>&nbsp; ${lead.nombre} Apellido Completo</p>
+                        <p><i class="fa-brands fa-whatsapp"></i>&nbsp; +56 9 XXXX XXXX</p>
+                    </div>
+                    <div class="lead-unlock-overlay">
+                        <button class="btn-unlock" onclick="unlockLead('${lead.id}', ${lead.creditos})">
+                            <i class="fa-solid fa-lock-open"></i> Desbloquear (${lead.creditos} cr)
+                        </button>
+                        <button class="btn-freeze" onclick="freezeLead('${lead.id}', 5)">
+                            <i class="fa-solid fa-snowflake"></i> Pedir Ventaja 12h (5 cr)
+                        </button>
+                        <span class="unlock-cost-label" style="display:block; margin-top:8px;">Cupos x5 disponibles</span>
+                    </div>
+                </div>
+            </div>`;
+        }
+
+        function unlockLead(id, cost) {
+            const credits = parseInt(document.getElementById('credit-count').textContent);
+            if (credits < cost) {
+                alert('No tienes suficientes créditos. ¡Compra más en la sección de Créditos!');
+                window.location.href = 'clinicas_creditos.html';
+                return;
+            }
+            if (!confirm(`¿Desbloquear este lead acceso compartido por ${cost} crédito${cost > 1 ? 's' : ''}?`)) return;
+            document.getElementById('credit-count').textContent = credits - cost;
+            alert(`✅ Lead ${id} desbloqueado. Ahora puedes ver el nombre completo y WhatsApp del paciente.`);
+        }
+
+        function freezeLead(id, cost) {
+            const credits = parseInt(document.getElementById('credit-count').textContent);
+            if (credits < cost) {
+                alert('No tienes suficientes créditos para congelarlo. ¡Compra más en la sección de Créditos!');
+                window.location.href = 'clinicas_creditos.html';
+                return;
+            }
+            if (!confirm(`¿Congelar este lead acceso exclusivo por 12 horas por ${cost} créditos? Nadie más lo podrá ver ni desbloquear.`)) return;
+            document.getElementById('credit-count').textContent = credits - cost;
+
+            // Local state mutation for prototype
+            const lead = LEADS.find(l => l.id === id);
+            if (lead) {
+                lead.freezeEndTime = Date.now() + (1000 * 60 * 60 * 12);
+                renderLeads();
+            }
+            alert(`🧊 Lead ${id} congelado por 12 horas. Eres el único con acceso ahora.`);
+        }
+
+        // Timer tick interval
+        setInterval(() => {
+            document.querySelectorAll('.frozen-timer').forEach(el => {
+                const endTime = parseInt(el.dataset.timer);
+                const diff = endTime - Date.now();
+
+                if (diff <= 0) {
+                    el.textContent = "¡Liberado!";
+                    // In a real app we would call renderLeads() to remove the overlay
+                    return;
+                }
+
+                const h = Math.floor(diff / (1000 * 60 * 60));
+                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+                el.textContent = `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+            });
+        }, 1000);
+
+        renderLeads();
+    </script>
+
+    <footer>
+        <div class="container footer-inner">
+            <div class="footer-logo"><i class="fa-solid fa-tooth"></i> dentofacil.</div>
+            <p class="footer-tagline">Conectando pacientes con las mejores clínicas del mundo</p>
+            <div class="footer-socials">
+                <a href="#" title="YouTube" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" title="Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" title="Facebook" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" title="TikTok" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+            <div class="footer-divider"></div>
+            <p>© <span class="current-year">2026</span> Dentofacil. Todos los derechos reservados.</p>
+            <script>document.querySelector('.current-year').textContent = new Date().getFullYear();</script>
+        </div>
+    </footer>
+</body>
+
+</html>
