@@ -9,7 +9,7 @@
     "idx_hero_title": "Cientos de clínicas compiten por atenderte.",
     "idx_hero_subtitle": "Encuentra el mejor precio cerca de ti, sin salir de casa. Elige qué necesitas, y nosotros te conectaremos con opciones locales reales en tiempo real.",
     "idx_badge_fast": "Rápido",
-    "idx_badge_fast_sub": "Respuestas en < 24 hora",
+    "idx_badge_fast_sub": "Respuestas en < 24 horas",
     "idx_badge_verif": "Verificados",
     "idx_badge_verif_sub": "Clínicas certificadas",
     "idx_como_title": "Cómo funciona Dentofacil",
@@ -138,7 +138,7 @@
     "cred_modal_btn": "Enviar Solicitud Privada"
   },
   "_generado_por": "Dentofacil i18n Publisher v1.0",
-  "_ultima_actualizacion": "2026-06-15T23:34:53.717Z",
+  "_ultima_actualizacion": "2026-06-15T23:35:40.235Z",
   "_idiomas_disponibles": [
     "es"
   ],
