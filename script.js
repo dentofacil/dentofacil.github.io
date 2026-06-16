@@ -50,6 +50,58 @@ document.addEventListener('DOMContentLoaded', () => {
     loadTranslations();
 
     // =========================================================================
+    // PRESUPUESTO DINÁMICO POR IP Y TIPO DE CAMBIO
+    // =========================================================================
+    let currentCurrency = 'CLP';
+    let currentRate = 1;
+
+    // Precios base en pesos chilenos para el Step 2
+    const baseBudgets = { bajo: 50000, alto: 200000 };
+
+    function updateBudgetLabels() {
+        // Redondear a lo más próximo lógico (ej. sin decimales para mostrar en UI)
+        const formatOptions = { style: 'currency', currency: currentCurrency, maximumFractionDigits: 0 };
+        const formatter = new Intl.NumberFormat('es-CL', formatOptions);
+
+        const bajoTotal = baseBudgets.bajo * currentRate;
+        const altoTotal = baseBudgets.alto * currentRate;
+
+        const btns = document.querySelectorAll('.budget-btn');
+        btns.forEach(btn => {
+            const tier = btn.dataset.budget;
+            const label = btn.querySelector('.budget-label');
+            if (label) {
+                if (tier === 'bajo') label.textContent = `Menos de ${formatter.format(bajoTotal)}`;
+                if (tier === 'medio') label.textContent = `Entre ${formatter.format(bajoTotal)} y ${formatter.format(altoTotal)}`;
+                if (tier === 'alto') label.textContent = `Más de ${formatter.format(altoTotal)}`;
+            }
+        });
+    }
+
+    // Cargar moneda via IP Geolocation al instante
+    fetch('https://ipapi.co/json/')
+        .then(res => res.json())
+        .then(geoData => {
+            const currency = geoData.currency;
+            if (currency && currency !== 'CLP') {
+                // Si el usuario no es de Chile, buscamos el tipo de cambio
+                fetch('https://open.er-api.com/v6/latest/CLP')
+                    .then(r => r.json())
+                    .then(data => {
+                        if (data.rates && data.rates[currency]) {
+                            currentCurrency = currency;
+                            currentRate = data.rates[currency];
+                            updateBudgetLabels();
+                        }
+                    });
+            } else {
+                updateBudgetLabels();
+            }
+        })
+        .catch(() => updateBudgetLabels()); // Fallback a CLP si falla la de IP
+
+
+    // =========================================================================
     // WIZARD STATE MACHINE
     // Tracks all user answers across the 5 steps before submitting
     // =========================================================================
@@ -83,6 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    // Nota: El presupuesto se ajusta vía IP al inicio (no cambia por input).
     // =========================================================================
     // 1. TREATMENT BUTTONS — all buttons with data-next (steps 1, 2, 3)
     // =========================================================================
