@@ -1,6 +1,55 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // =========================================================================
+    // MULTILINGUAL (i18n) GITOPS SUPPORT
+    // =========================================================================
+    const I18N_URL = 'https://dentofacil.github.io/translations/i18n.json';
+    let translations = {};
+    let currentLang = navigator.language.split('-')[0] || 'es';
+
+    async function loadTranslations() {
+        try {
+            const response = await fetch(I18N_URL);
+            if (!response.ok) throw new Error('Error al acceder a traducciones');
+            translations = await response.json();
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const langParam = urlParams.get('lang');
+
+            const availableLangs = translations._idiomas_disponibles || ['es'];
+            let langToUse = langParam || currentLang;
+
+            if (!availableLangs.includes(langToUse)) {
+                langToUse = translations._idioma_fallback || 'es';
+            }
+            currentLang = langToUse;
+
+            applyTranslations(currentLang);
+        } catch (error) {
+            console.error('Error cargando i18n:', error);
+        }
+    }
+
+    function applyTranslations(lang) {
+        if (!translations[lang]) return;
+        const dict = translations[lang];
+
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (dict[key]) {
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = dict[key];
+                } else {
+                    el.innerHTML = dict[key];
+                }
+            }
+        });
+    }
+
+    // Inicializar traducciones
+    loadTranslations();
+
+    // =========================================================================
     // WIZARD STATE MACHINE
     // Tracks all user answers across the 5 steps before submitting
     // =========================================================================
