@@ -16,10 +16,10 @@
     "index_evaluaci_n_general": "<i class=\"fa-solid fa-stethoscope\"></i> Evaluación General",
     "index_paso_2_de_6": "Paso 2 de 6",
     "index_cu_l_es_tu_presupuesto_aproxim": "¿Cuál es tu presupuesto aproximado?",
-    "index_menos_de_50_000": "<i class=\"fa-solid fa-coins\"></i> Menos de $50.000",
-    "index_entre_50_000_y_200_000": "<i class=\"fa-solid fa-sack-dollar\"></i> Entre $50.000 y $200.000",
-    "index_m_s_de_200_000": "<i class=\"fa-solid fa-gem\"></i> Más de $200.000",
-    "index_a_n_no_lo_s": "<i class=\"fa-solid fa-circle-question\"></i> Aún no lo sé",
+    "idx_budget_bajo": "Menos de $A",
+    "idx_budget_medio": "Entre $A y $B",
+    "idx_budget_alto": "Más de $B",
+    "idx_budget_nosabe": "Aún no lo sé",
     "index_volver": "<i class=\"fa-solid fa-chevron-left\"></i> Volver",
     "index_paso_3_de_6": "Paso 3 de 6",
     "index_con_qu_urgencia_necesitas_aten": "¿Con qué urgencia necesitas atención?",
@@ -43,7 +43,7 @@
     "index_para_que_las_cl_nicas_comience": "Para que las clínicas comiencen a enviarte propuestas personalizadas y se pongan en contacto contigo, haz clic abajo para activar tu solicitud por WhatsApp.",
     "index_validar_por_whatsapp": "<i class=\"fa-brands fa-whatsapp\"></i> Validar por WhatsApp",
     "index_r_pido": "Rápido",
-    "index_respuestas_en_1_hora": "Respuestas en < 24 horas",
+    "index_respuestas_en_1_hora": "Respuestas en < 1 hora",
     "index_verificados": "Verificados",
     "index_cl_nicas_certificadas": "Clínicas certificadas",
     "index_c_mo_funciona_dentofacil": "Cómo funciona Dentofacil",
@@ -219,7 +219,7 @@
     "clinicas_creditos_enviar_solicitud_privada": "Enviar Solicitud Privada"
   },
   "_generado_por": "Dentofacil i18n Publisher v1.0",
-  "_ultima_actualizacion": "2026-06-16T09:13:04.008Z",
+  "_ultima_actualizacion": "2026-06-16T10:45:35.501Z",
   "_idiomas_disponibles": [
     "es"
   ],
