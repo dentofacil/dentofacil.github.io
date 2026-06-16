@@ -4,7 +4,7 @@
     "index_dentofacil": "dentofacil<span class=\"logo-dot\">.</span>",
     "index_c_mo_funciona": "Cómo Funciona",
     "index_acceso_cl_nicas": "Acceso Clínicas <i class=\"fa-solid fa-arrow-right\"></i>",
-    "index_hola_queremos_ayudarte_a_encon": "<span class=\"wave\">👋</span> ¡Hola gato! Queremos ayudarte a encontrar a tu dentista ideal.",
+    "index_hola_queremos_ayudarte_a_encon": "<span class=\"wave\">👋</span> ¡Hola! Queremos ayudarte a encontrar a tu dentista ideal.",
     "index_dinos_qu_necesitas_paso_a_paso": "Dinos qué necesitas paso a paso y recibe propuestas de clínicas en tu zona. Nuestro servicio es 100% gratuito.",
     "index_paso_1_de_6": "Paso 1 de 6",
     "index_qu_tratamiento_buscas": "¿Qué tratamiento buscas?",
@@ -43,7 +43,7 @@
     "index_para_que_las_cl_nicas_comience": "Para que las clínicas comiencen a enviarte propuestas personalizadas y se pongan en contacto contigo, haz clic abajo para activar tu solicitud por WhatsApp.",
     "index_validar_por_whatsapp": "<i class=\"fa-brands fa-whatsapp\"></i> Validar por WhatsApp",
     "index_r_pido": "Rápido",
-    "index_respuestas_en_1_hora": "Respuestas en < 1 hora",
+    "index_respuestas_en_1_hora": "Respuestas en < 24 horas",
     "index_verificados": "Verificados",
     "index_cl_nicas_certificadas": "Clínicas certificadas",
     "index_c_mo_funciona_dentofacil": "Cómo funciona Dentofacil",
@@ -219,7 +219,7 @@
     "clinicas_creditos_enviar_solicitud_privada": "Enviar Solicitud Privada"
   },
   "_generado_por": "Dentofacil i18n Publisher v1.0",
-  "_ultima_actualizacion": "2026-06-16T09:10:08.137Z",
+  "_ultima_actualizacion": "2026-06-16T09:13:04.008Z",
   "_idiomas_disponibles": [
     "es"
   ],
